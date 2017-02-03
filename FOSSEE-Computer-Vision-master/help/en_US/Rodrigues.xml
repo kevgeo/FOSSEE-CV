@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from Rodrigues.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="Rodrigues" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>Rodrigues</refname>
+    <refpurpose>Converts a rotation vector to rotation matrix or vice-versa</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [rotation jacobian]  =  Rodrigues(rot);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>rot :</term>
+      <listitem><para> Rotation matrix or vector</para></listitem></varlistentry>
+   <varlistentry><term>rotation :</term>
+      <listitem><para>Output rotation matrix</para></listitem></varlistentry>
+   <varlistentry><term>jacobian :</term>
+      <listitem><para> Matrix of partial derivatives</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function converts a rotation vector to rotation matrix or matrix to vector and also returns an optional output which contains matrix of
+partial derivatives of first output with respect to input.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Vector values
+rotvec = [12;
+5;
+7];
+//Converting "rotvec" vector to a rotation matrix
+[rotmatrix jacobian2 ] = Rodrigues(rotvec);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

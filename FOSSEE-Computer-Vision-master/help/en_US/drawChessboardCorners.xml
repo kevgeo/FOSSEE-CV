@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from drawChessboardCorners.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="drawChessboardCorners" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>drawChessboardCorners</refname>
+    <refpurpose>Displays the detected chessboard corners</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   img = drawChessboardCorners(Image,pts_row,pts_cols,coordinates,found);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image :</term>
+      <listitem><para> Path of image file</para></listitem></varlistentry>
+   <varlistentry><term>double pts_row,pts_cols :</term>
+      <listitem><para> Number of inner corners per chessboard per row and column</para></listitem></varlistentry>
+   <varlistentry><term>matrixofdouble coordinates :</term>
+      <listitem><para> array of detected corners</para></listitem></varlistentry>
+   <varlistentry><term>found :</term>
+      <listitem><para> boolean value indicating whether complete board has been found or not</para></listitem></varlistentry>
+   <varlistentry><term>img :</term>
+      <listitem><para> Image with deteced chessboard corners</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function displays the detected chessboard corners.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inImage = imread("chessboard3.png");
+[found coordinates ] = findChessboardCorners(inImage,7,7,"CV_CALIB_CB_ADAPTIVE_THRESH");
+img = drawChessboardCorners(inImage,7,7,coordinates,found);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

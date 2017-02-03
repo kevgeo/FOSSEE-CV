@@ -1,0 +1,106 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>stereoRectify</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="stereoCalibrate.html">&lt;&lt; stereoCalibrate</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; stereoRectify</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">stereoRectify</h1>
+    <p class="refpurpose">Computes rectification transforms for calibrated stereo camera</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">R1</span><span class="default">,</span><span class="default">R2</span><span class="default">,</span><span class="default">P1</span><span class="default">,</span><span class="default">P2</span><span class="default">,</span><span class="default">Q</span><span class="default">] = </span><span class="functionid">stereoRectify</span><span class="default">(</span><span class="default">cam1</span><span class="default">,</span><span class="default">dis1</span><span class="default">,</span><span class="default">cam2</span><span class="default">,</span><span class="default">dis2</span><span class="default">,</span><span class="default">ImageSize</span><span class="default">,</span><span class="default">R</span><span class="default">,</span><span class="default">T</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">cam1 :</span>
+      <dd><p class="para">First camera matrix</p></dd></dt>
+   <dt><span class="term">dis1 :</span>
+      <dd><p class="para">First camera distortion parameters</p></dd></dt>
+   <dt><span class="term">cam2 :</span>
+      <dd><p class="para">Second camera matrix</p></dd></dt>
+   <dt><span class="term">dis2 :</span>
+      <dd><p class="para">Second camera distortion parameters</p></dd></dt>
+   <dt><span class="term">ImageSize :</span>
+      <dd><p class="para">Size of image</p></dd></dt>
+   <dt><span class="term">R :</span>
+      <dd><p class="para">Rotation matrix between coordinate systems of cameras</p></dd></dt>
+   <dt><span class="term">T :</span>
+      <dd><p class="para">Translation vector between coordinate systems of cameras</p></dd></dt>
+   <dt><span class="term">Output:</span>
+      <dd><p class="para"></p></dd></dt>
+   <dt><span class="term">R1 :</span>
+      <dd><p class="para">Rectification transform for first camera</p></dd></dt>
+   <dt><span class="term">R2 :</span>
+      <dd><p class="para">Rectification transform for second camera</p></dd></dt>
+   <dt><span class="term">P1 :</span>
+      <dd><p class="para">Projection matrix for first camera</p></dd></dt>
+   <dt><span class="term">P2 :</span>
+      <dd><p class="para">Projection matrix for second camera</p></dd></dt>
+   <dt><span class="term">Q :</span>
+      <dd><p class="para">Disparity-to-depth mapping matrix</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function computes the rectification transforms, projection matrices and disparity to depth mapping matrix.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">cam1</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">100</span> <span class="scilabnumber">0</span> <span class="scilabnumber">105</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">106</span> <span class="scilabnumber">107</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">cam2</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">100</span> <span class="scilabnumber">0</span> <span class="scilabnumber">105</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">106</span> <span class="scilabnumber">107</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">dis1</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">4</span> <span class="scilabnumber">5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">dis2</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">4</span> <span class="scilabnumber">5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">R</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span><span class="scilabnumber">4</span> <span class="scilabnumber">5</span> <span class="scilabnumber">6</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">8</span> <span class="scilabnumber">7</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">T</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">45</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">ImageSize</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">480</span> <span class="scilabnumber">640</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">R1</span><span class="scilabdefault">,</span><span class="scilabid">R2</span><span class="scilabdefault">,</span><span class="scilabid">P1</span><span class="scilabdefault">,</span><span class="scilabid">P2</span><span class="scilabdefault">,</span><span class="scilabid">Q</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">stereoRectify</span><span class="scilabopenclose">(</span><span class="scilabid">cam1</span><span class="scilabdefault">,</span><span class="scilabid">dis1</span><span class="scilabdefault">,</span><span class="scilabid">cam2</span><span class="scilabdefault">,</span><span class="scilabid">dis2</span><span class="scilabdefault">,</span><span class="scilabid">ImageSize</span><span class="scilabdefault">,</span><span class="scilabid">R</span><span class="scilabdefault">,</span><span class="scilabid">T</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="stereoCalibrate.html">&lt;&lt; stereoCalibrate</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

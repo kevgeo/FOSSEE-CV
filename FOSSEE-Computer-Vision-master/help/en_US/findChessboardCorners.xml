@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from findChessboardCorners.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="findChessboardCorners" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>findChessboardCorners</refname>
+    <refpurpose>Finds the internal corners of the chessboard.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [found coordinates ] = findChessboardCorners(Image,patternsize_row,patternsize_col,flags);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image :</term>
+      <listitem><para> Path of image file</para></listitem></varlistentry>
+   <varlistentry><term>double patternsize :</term>
+      <listitem><para> Number of inner corners per chessboard per row and column</para></listitem></varlistentry>
+   <varlistentry><term>string flags :</term>
+      <listitem><para> Apply different methods to find internal corners. These include</para></listitem></varlistentry>
+   <varlistentry><term>bool Found :</term>
+      <listitem><para> Boolean value stating whether corner has been found(0) or not(1)</para></listitem></varlistentry>
+   <varlistentry><term>matrixofdouble Corners :</term>
+      <listitem><para> array of detected corners</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function finds the internal corners of the chessboard and outputs the detected corners.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Image = imread("chessboard3.png");
+[found coordinates ] = findChessboardCorners(Image,7,7,"CV_CALIB_CB_ADAPTIVE_THRESH");
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY ad8d5961a84792f7dcf4ff8e217250f7a SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/KalmanFilter.xml">
+<!ENTITY a9cd2bc68c9aafd55b22aa7c2d10555fd SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/OpticalFlowFarneback.xml">
+<!ENTITY a11bedb656d6f698cba4acab874837a62 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/RQDecomp3x3.xml">
+<!ENTITY a9c148134ebb61202de79dc71b261c427 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/Rodrigues.xml">
+<!ENTITY aaf37919dd97da47430b460894cfa8e4e SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/calibrateCamera.xml">
+<!ENTITY a6a79f43a4f830382e7317d3526e73954 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/calibrationMatrixValues.xml">
+<!ENTITY a85b38ce9725ba89615fef45a45bca61c SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/composeRT.xml">
+<!ENTITY a209886a7209ff21edfaa8e58381d5407 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/convertPointsFromHomogenous.xml">
+<!ENTITY a9615630b209e14f8dd1ce91647ae427c SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/convertPointsToHomogeneous.xml">
+<!ENTITY a1eada5dc2fca36bbd11dc73b5dd285b7 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/convolver.xml">
+<!ENTITY ae7c0195fa319ceed91925f48ceae2eb3 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/decomposeProjectionMatrix.xml">
+<!ENTITY a60109a6e007edab4cd54d26e4a540d2a SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/disparitySGBM.xml">
+<!ENTITY a5a3af08cca177e3b0dc1b4ef43046ac6 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/drawChessboardCorners.xml">
+<!ENTITY a2da5f20d304cf4ac9ff9f84f22feb5d3 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/epipolarlines.xml">
+<!ENTITY aaf192a9cf32507efacab4465acfb61bc SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/estimateAffine3D.xml">
+<!ENTITY a7bc98903468c03a2778c4d8b59281ed2 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/extractHOGFeatures.xml">
+<!ENTITY afc98ee9575e3ef54adb700b130fdab6a SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/filterSpeckles.xml">
+<!ENTITY a87477bd7efbedc65eab85b49c61861a1 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/findChessboardCorners.xml">
+<!ENTITY added1662afd130b9d4aeda6b9cc2f0a8 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/findCirclesGrid.xml">
+<!ENTITY ad632388002632f24bb168829cad92b98 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/getOptimalNewCameraMatrix.xml">
+<!ENTITY af4b60b2ce0d8f9b9278ebeec02bfd07e SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/initCameraMatrix2D.xml">
+<!ENTITY adafc5ad8f64bf1518dbc09979a04dad3 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/isfilterseparable.xml">
+<!ENTITY a1b4198e3a016b93133aba32efbab5a9e SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/projectPoints.xml">
+<!ENTITY a04feedb8ef68fb9d3d46b2362f59eb5b SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/reprojectImageto3D.xml">
+<!ENTITY adf370b1e71cd7a4b53c97cd1c2bb5494 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/showMatchedFeatures.xml">
+<!ENTITY a0383b61229626d5991c92d60308a63ab SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/solvePNnP.xml">
+<!ENTITY a506550aa1c44aa5d87065ed706a568c7 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/solvePnPRansac.xml">
+<!ENTITY a0f3ee7c9d66eda6d89728dc23d75f49f SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/stereoCalibrate.xml">
+<!ENTITY abeb53833eaa5f2f30b6e5032435d26f4 SYSTEM "/home/kevmepls/Downloads/FOSSEE-Computer-Vision-master/help/en_US/stereoRectify.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='image_processing_toolbox_manual'>
+    <title>Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_1dc9596c61a304fd3d0f9927d7e728f8'>
+<title>Image Processing Toolbox</title>
+&ad8d5961a84792f7dcf4ff8e217250f7a;
+&a9cd2bc68c9aafd55b22aa7c2d10555fd;
+&a11bedb656d6f698cba4acab874837a62;
+&a9c148134ebb61202de79dc71b261c427;
+&aaf37919dd97da47430b460894cfa8e4e;
+&a6a79f43a4f830382e7317d3526e73954;
+&a85b38ce9725ba89615fef45a45bca61c;
+&a209886a7209ff21edfaa8e58381d5407;
+&a9615630b209e14f8dd1ce91647ae427c;
+&a1eada5dc2fca36bbd11dc73b5dd285b7;
+&ae7c0195fa319ceed91925f48ceae2eb3;
+&a60109a6e007edab4cd54d26e4a540d2a;
+&a5a3af08cca177e3b0dc1b4ef43046ac6;
+&a2da5f20d304cf4ac9ff9f84f22feb5d3;
+&aaf192a9cf32507efacab4465acfb61bc;
+&a7bc98903468c03a2778c4d8b59281ed2;
+&afc98ee9575e3ef54adb700b130fdab6a;
+&a87477bd7efbedc65eab85b49c61861a1;
+&added1662afd130b9d4aeda6b9cc2f0a8;
+&ad632388002632f24bb168829cad92b98;
+&af4b60b2ce0d8f9b9278ebeec02bfd07e;
+&adafc5ad8f64bf1518dbc09979a04dad3;
+&a1b4198e3a016b93133aba32efbab5a9e;
+&a04feedb8ef68fb9d3d46b2362f59eb5b;
+&adf370b1e71cd7a4b53c97cd1c2bb5494;
+&a0383b61229626d5991c92d60308a63ab;
+&a506550aa1c44aa5d87065ed706a568c7;
+&a0f3ee7c9d66eda6d89728dc23d75f49f;
+&abeb53833eaa5f2f30b6e5032435d26f4;
+</part>
+</book>

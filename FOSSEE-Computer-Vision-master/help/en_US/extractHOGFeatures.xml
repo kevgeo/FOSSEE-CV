@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from extractHOGFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="extractHOGFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>extractHOGFeatures</refname>
+    <refpurpose>Extracts Histogram of Oriented Gradients(HOG) feature values from image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   values = extractHOGFeatures(Image);
+   values = extractHOGFeatures(Image,"CellSize",value,"BlockSize",value,"BlockOverlap",value,"NumBins",value);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image :</term>
+      <listitem><para> Input image matrix</para></listitem></varlistentry>
+   <varlistentry><term>double CellSize :</term>
+      <listitem><para> Determines the cell size in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>double BlockSize :</term>
+      <listitem><para> Determines the block size in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>double BlockOverlap :</term>
+      <listitem><para> Specifies the amount of block overlap. It must be a multiple of CellSize.</para></listitem></varlistentry>
+   <varlistentry><term>int NumBins :</term>
+      <listitem><para> Specifies the number of bins.</para></listitem></varlistentry>
+   <varlistentry><term>double values :</term>
+      <listitem><para> It is a vector containing the computed HOG values from the image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function extracts the HOG feature values from an image and stores them in a vector.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Reading image
+I1 = imread("lena.jpeg");
+//Extracting HOG feature values from image
+values = extractHOGFeatures(I1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kevin George</member>
+   </simplelist>
+</refsection>
+</refentry>

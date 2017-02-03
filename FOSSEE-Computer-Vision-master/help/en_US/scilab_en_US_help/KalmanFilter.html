@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>KalmanFilter</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">&lt;&lt; Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="OpticalFlowFarneback.html">OpticalFlowFarneback &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; KalmanFilter</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">KalmanFilter</h1>
+    <p class="refpurpose">Object Tracking using Kalman Filter</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="functionid">KalmanFilter</span><span class="default">(</span>&#0034;<span class="default">FileName</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">dynamParams</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">measureParams</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">controlParams</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>
+&#0034;<span class="default">type</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">colour</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">drawpath</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">delay</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">int dynamparams :</span>
+      <dd><p class="para">This specifies the state dimensionality.</p></dd></dt>
+   <dt><span class="term">int measureparams :</span>
+      <dd><p class="para">This specifies the measurement dimensionality</p></dd></dt>
+   <dt><span class="term">int controlparams :</span>
+      <dd><p class="para">This specifies the control vector values</p></dd></dt>
+   <dt><span class="term">int type :</span>
+      <dd><p class="para">This specifies the datatype of frames in the video</p></dd></dt>
+   <dt><span class="term">string colour :</span>
+      <dd><p class="para">This specifies the colour of the object to be tracked</p></dd></dt>
+   <dt><span class="term">bool drawpath :</span>
+      <dd><p class="para">This specifies whether you want the path of the moving object to be drawn</p></dd></dt>
+   <dt><span class="term">bool delay :</span>
+      <dd><p class="para">This specifies whether video playback show be slower or not.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function tracks the object using Kalman Filter and video-plays the tracking of the object. The red box is the object being
+detected using Kalman Filter method wheras the green box is the same except the method used
+here are basic image processing techniques to detect the object in the video frame.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//Performing Object Tracking on green ball</span>
+<span class="scilabid">KalmanFilter</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">FileName</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">singleball.avi</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">colour</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">green</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">delay</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">true</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">drawpath</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">true</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span>
+<span class="scilabcomment">//Performing Object Tracking on red juggling ball</span>
+<span class="scilabid">KalmanFilter</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">FileName</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">juggling.mp4</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">colour</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">red</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">drawpath</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">false</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">&lt;&lt; Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="OpticalFlowFarneback.html">OpticalFlowFarneback &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

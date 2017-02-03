@@ -1,0 +1,83 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>isfilterseparable</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="initCameraMatrix2D.html">&lt;&lt; initCameraMatrix2D</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="projectPoints.html">projectPoints &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; isfilterseparable</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">isfilterseparable</h1>
+    <p class="refpurpose">Checks whether the given filter/kernel is separable or not.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">bool</span> <span class="default">check</span><span class="default"> = </span><span class="functionid">isfilterseparable</span><span class="default">(</span>&#0034;<span class="default">filter</span>&#0034;<span class="default">,</span><span class="default">kernel</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">filter:</span>
+      <dd><p class="para">filter/kernel values</p></dd></dt>
+   <dt><span class="term">check :</span>
+      <dd><p class="para">Boolean variable which tells whether the kernel is separable(1) or not(0).</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function finds the rank of the kernel. If it is 1, then the function returns a boolean value 1 signifying that the filter is separable;
+else it returns boolean value 0 signifying it is not separable.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//Sobel filter</span>
+<span class="scilabid">sobel</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilaboperator">-</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span> <span class="scilaboperator">-</span><span class="scilabnumber">2</span> <span class="scilabnumber">0</span> <span class="scilabnumber">2</span><span class="scilabdefault">;</span> <span class="scilaboperator">-</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Executing function</span>
+<span class="scilabid">isfilterseparable</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">filter</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabid">sobel</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Kevin George</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="initCameraMatrix2D.html">&lt;&lt; initCameraMatrix2D</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="projectPoints.html">projectPoints &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

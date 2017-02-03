@@ -1,0 +1,114 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>projectPoints</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="isfilterseparable.html">&lt;&lt; isfilterseparable</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="reprojectImageto3D.html">reprojectImageto3D &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; projectPoints</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">projectPoints</h1>
+    <p class="refpurpose">Takes in 3D points and outputs the corresponding 2D points in image plane.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">projPts</span><span class="default"> = </span><span class="functionid">projectPoints</span><span class="default">(</span><span class="default">obpts</span><span class="default">,</span><span class="default">rvec</span><span class="default">,</span><span class="default">tvec</span><span class="default">, </span><span class="default">camera</span><span class="default">, </span><span class="default">dist</span><span class="default">, </span><span class="default">aspectRatio</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">obpts :</span>
+      <dd><p class="para">array of object points</p></dd></dt>
+   <dt><span class="term">rvec :</span>
+      <dd><p class="para">rotation vector</p></dd></dt>
+   <dt><span class="term">tvec :</span>
+      <dd><p class="para">translation vector</p></dd></dt>
+   <dt><span class="term">camera :</span>
+      <dd><p class="para">input matrix</p></dd></dt>
+   <dt><span class="term">dist :</span>
+      <dd><p class="para">vector of distortion coefficients</p></dd></dt>
+   <dt><span class="term">aspectRatio :</span>
+      <dd><p class="para">fixed aspect ratio parameter</p></dd></dt>
+   <dt><span class="term">projPts :</span>
+      <dd><p class="para">Array of image points</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function returns array of image points(2D).</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">obpts</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">impts</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">282</span> <span class="scilabnumber">274</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">397</span> <span class="scilabnumber">227</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">577</span> <span class="scilabnumber">271</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">462</span> <span class="scilabnumber">318</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">270</span> <span class="scilabnumber">479</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">450</span> <span class="scilabnumber">523</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">566</span> <span class="scilabnumber">475</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">camera</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span>
+<span class="scilabid">dist</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">iterations</span> <span class="scilaboperator">=</span> <span class="scilabnumber">5</span><span class="scilabdefault">;</span>
+<span class="scilabid">reprojectionError</span> <span class="scilaboperator">=</span> <span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabid">minInliersCount</span> <span class="scilaboperator">=</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">rvec</span> <span class="scilabid">tvec</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">solvePnPRansac</span><span class="scilabopenclose">(</span><span class="scilabid">obpts</span><span class="scilabdefault">,</span><span class="scilabid">impts</span><span class="scilabdefault">,</span><span class="scilabid">camera</span><span class="scilabdefault">,</span><span class="scilabid">dist</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">CV_ITERATIVE</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabid">iterations</span><span class="scilabdefault">,</span><span class="scilabid">reprojectionError</span><span class="scilabdefault">,</span><span class="scilabid">minInliersCount</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">projPts</span> <span class="scilaboperator">=</span> <span class="scilabid">projectPoints</span><span class="scilabopenclose">(</span><span class="scilabid">obpts</span><span class="scilabdefault">,</span><span class="scilabid">rvec</span><span class="scilabdefault">,</span><span class="scilabid">tvec</span><span class="scilabdefault">,</span> <span class="scilabid">camera</span><span class="scilabdefault">,</span> <span class="scilabid">dist</span><span class="scilabdefault">,</span> <span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="isfilterseparable.html">&lt;&lt; isfilterseparable</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="reprojectImageto3D.html">reprojectImageto3D &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

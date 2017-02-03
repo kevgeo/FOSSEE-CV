@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from convolver.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="convolver" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>convolver</refname>
+    <refpurpose>Perform convolution on image with kernel</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImg = convolver(Image,"size",value,"values",value,"scalar",value);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image :</term>
+      <listitem><para> Input image matrix</para></listitem></varlistentry>
+   <varlistentry><term>int size :</term>
+      <listitem><para>  This is basically the dimension of the kernel. Since only square matrix kernel is supported, size is either column or row size of kernel.</para></listitem></varlistentry>
+   <varlistentry><term>array(float) values :</term>
+      <listitem><para> Kernel or filter</para></listitem></varlistentry>
+   <varlistentry><term>int scalar :</term>
+      <listitem><para> The value which is multiplied to the whole kernel</para></listitem></varlistentry>
+   <varlistentry><term>outputImg :</term>
+      <listitem><para> Convoluted image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes convolution on an image with a kernel and outputs a new image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Reading image
+I1 = imread("lena.jpeg");
+//This kernel will give same image with no change
+a = [0 0 0; 0 1 0; 0 0 0];
+//convolution on image is done with this kernel
+outImg = convolver(I1,"size",3,"values",a,"scalar",1);
+//-> Returns an image
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

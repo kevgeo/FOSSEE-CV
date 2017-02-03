@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from stereoRectify.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="stereoRectify" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>stereoRectify</refname>
+    <refpurpose>Computes rectification transforms for calibrated stereo camera</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [R1,R2,P1,P2,Q] = stereoRectify(cam1,dis1,cam2,dis2,ImageSize,R,T);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>cam1 :</term>
+      <listitem><para> First camera matrix</para></listitem></varlistentry>
+   <varlistentry><term>dis1 :</term>
+      <listitem><para> First camera distortion parameters</para></listitem></varlistentry>
+   <varlistentry><term>cam2 :</term>
+      <listitem><para> Second camera matrix</para></listitem></varlistentry>
+   <varlistentry><term>dis2 :</term>
+      <listitem><para> Second camera distortion parameters</para></listitem></varlistentry>
+   <varlistentry><term>ImageSize :</term>
+      <listitem><para> Size of image</para></listitem></varlistentry>
+   <varlistentry><term>R :</term>
+      <listitem><para> Rotation matrix between coordinate systems of cameras</para></listitem></varlistentry>
+   <varlistentry><term>T :</term>
+      <listitem><para> Translation vector between coordinate systems of cameras</para></listitem></varlistentry>
+   <varlistentry><term>Output:</term>
+      <listitem><para> </para></listitem></varlistentry>
+   <varlistentry><term>R1 :</term>
+      <listitem><para> Rectification transform for first camera</para></listitem></varlistentry>
+   <varlistentry><term>R2 :</term>
+      <listitem><para> Rectification transform for second camera</para></listitem></varlistentry>
+   <varlistentry><term>P1 :</term>
+      <listitem><para> Projection matrix for first camera</para></listitem></varlistentry>
+   <varlistentry><term>P2 :</term>
+      <listitem><para> Projection matrix for second camera</para></listitem></varlistentry>
+   <varlistentry><term>Q :</term>
+      <listitem><para> Disparity-to-depth mapping matrix</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes the rectification transforms, projection matrices and disparity to depth mapping matrix.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+cam1=[100 0 105;0 106 107; 0 0 1];
+cam2=[100 0 105;0 106 107; 0 0 1];
+dis1=[0 0 0 4 5];
+dis2=[0 0 0 4 5];
+R=[1 2 3;4 5 6;0 8 7];
+T=[0 0 45];
+ImageSize = [480 640];
+[R1,R2,P1,P2,Q] = stereoRectify(cam1,dis1,cam2,dis2,ImageSize,R,T);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,168 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>stereoCalibrate</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="solvePnPRansac.html">&lt;&lt; solvePnPRansac</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="stereoRectify.html">stereoRectify &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; stereoCalibrate</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">stereoCalibrate</h1>
+    <p class="refpurpose">Takes in 3D points and outputs the corresponding 2D points in image plane</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">rotMatrix</span> <span class="default">Transvec</span> <span class="default">EMatrix</span> <span class="default">FMatrix</span><span class="default">] = </span><span class="functionid">stereoCalibrate</span><span class="default">(</span><span class="default">list_size</span><span class="default">,</span><span class="default">calibPoints</span><span class="default">,</span><span class="default">ProjcalibPoints1</span><span class="default">,</span><span class="default">ProjcalibPoints2</span><span class="default">,</span><span class="default">camera1</span><span class="default">,</span><span class="default">dist1</span><span class="default">,</span><span class="default">camera2</span><span class="default">,</span><span class="default">dist2</span><span class="default">,</span><span class="default">width</span><span class="default">,</span><span class="default">height</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">matrixofdouble calibPoints :</span>
+      <dd><p class="para">vector of vector of calibration points</p></dd></dt>
+   <dt><span class="term">matrixofdouble ProjcalibPoints1 :</span>
+      <dd><p class="para">vector of vector of projection of calibration points by first camera</p></dd></dt>
+   <dt><span class="term">matrixofdouble ProjcalibPoints2 :</span>
+      <dd><p class="para">vector of vector of projection of calibration points by second camera</p></dd></dt>
+   <dt><span class="term">matrixofdouble camera1 :</span>
+      <dd><p class="para">first camera matrix</p></dd></dt>
+   <dt><span class="term">matrixofdouble dist1 :</span>
+      <dd><p class="para">vector of distortion coefficients for first camera</p></dd></dt>
+   <dt><span class="term">matrixofdouble camera2 :</span>
+      <dd><p class="para">second camera matrix</p></dd></dt>
+   <dt><span class="term">matrixofdouble dist2 :</span>
+      <dd><p class="para">vector of distortion coefficients for second camera</p></dd></dt>
+   <dt><span class="term">double width,height :</span>
+      <dd><p class="para">size of image in pixels</p></dd></dt>
+   <dt><span class="term">rotMatrix :</span>
+      <dd><p class="para">rotation matrix</p></dd></dt>
+   <dt><span class="term">TransVec :</span>
+      <dd><p class="para">translation vector</p></dd></dt>
+   <dt><span class="term">EMatrix :</span>
+      <dd><p class="para">essential matrix</p></dd></dt>
+   <dt><span class="term">FMatrix :</span>
+      <dd><p class="para">fundamental matrix</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function outputs the corresponding 2D points in image plane.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">inImage</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">inImage2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">found</span> <span class="scilabid">coordinates</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">findChessboardCorners</span><span class="scilabopenclose">(</span><span class="scilabid">inImage</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">CV_CALIB_CB_ADAPTIVE_THRESH</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">found2</span> <span class="scilabid">coordinates2</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">findChessboardCorners</span><span class="scilabopenclose">(</span><span class="scilabid">inImage2</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">CV_CALIB_CB_ADAPTIVE_THRESH</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">obpts</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">1</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">2</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">3</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">4</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">5</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">1</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">2</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">3</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">4</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">5</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabnumber">6</span>    <span class="scilabnumber">6</span>    <span class="scilabnumber">0</span>
+<span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">camera1</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">camera2</span> <span class="scilaboperator">=</span> <span class="scilabid">camera1</span><span class="scilabdefault">;</span>
+<span class="scilabid">dist</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">dist2</span> <span class="scilaboperator">=</span> <span class="scilabid">dist</span><span class="scilabdefault">;</span>
+<span class="scilabid">dist1</span> <span class="scilaboperator">=</span> <span class="scilabid">dist</span><span class="scilabdefault">;</span>
+<span class="scilabid">width</span> <span class="scilaboperator">=</span> <span class="scilabnumber">700</span><span class="scilabdefault">;</span>
+<span class="scilabid">height</span> <span class="scilaboperator">=</span> <span class="scilabnumber">525</span><span class="scilabdefault">;</span>
+<span class="scilabid">obPts</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">obpts</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">coordinates1</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">coordinates</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">coordinates2</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">coordinates2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">rotMatrix</span> <span class="scilabid">Transvec</span> <span class="scilabid">EMatrix</span> <span class="scilabid">FMatrix</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">stereoCalibrate</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabid">obPts</span><span class="scilabdefault">,</span><span class="scilabid">coordinates1</span><span class="scilabdefault">,</span><span class="scilabid">coordinates2</span><span class="scilabdefault">,</span><span class="scilabid">camera1</span><span class="scilabdefault">,</span><span class="scilabid">dist1</span><span class="scilabdefault">,</span><span class="scilabid">camera2</span><span class="scilabdefault">,</span><span class="scilabid">dist2</span><span class="scilabdefault">,</span><span class="scilabid">width</span><span class="scilabdefault">,</span><span class="scilabid">height</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="solvePnPRansac.html">&lt;&lt; solvePnPRansac</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="stereoRectify.html">stereoRectify &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

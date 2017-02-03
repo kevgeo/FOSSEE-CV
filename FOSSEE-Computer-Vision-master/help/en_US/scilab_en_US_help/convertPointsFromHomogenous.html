@@ -1,0 +1,81 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>convertPointsFromHomogenous</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="composeRT.html">&lt;&lt; composeRT</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convertPointsToHomogeneous.html">convertPointsToHomogeneous &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; convertPointsFromHomogenous</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">convertPointsFromHomogenous</h1>
+    <p class="refpurpose">Converts the points from homogeneous to Euclidean space</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">pts_euclidean</span><span class="default"> = </span><span class="default">convertPointsToHomogeneous</span><span class="default">(</span><span class="default">pts_homogenous</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">pts_homogenous :</span>
+      <dd><p class="para">vector of N dimensional points in homogenous space</p></dd></dt>
+   <dt><span class="term">pts_euclidean :</span>
+      <dd><p class="para">vector of N-1 dimensional points in Euclidean space</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function converts vector of N dimensional points in homogenous space to a vector of N-1 dimensional points in Euclidean space.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">pts_homogenous</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilaboperator">-</span><span class="scilabnumber">75</span> <span class="scilaboperator">-</span><span class="scilabnumber">90</span> <span class="scilabnumber">12</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">120</span> <span class="scilabnumber">1</span> <span class="scilabnumber">34</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">pts_euclidean</span> <span class="scilaboperator">=</span> <span class="scilabid">convertPointsFromHomogeneous</span><span class="scilabopenclose">(</span><span class="scilabid">pts_homogenous</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="composeRT.html">&lt;&lt; composeRT</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convertPointsToHomogeneous.html">convertPointsToHomogeneous &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from initCameraMatrix2D.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="initCameraMatrix2D" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>initCameraMatrix2D</refname>
+    <refpurpose>Returns a new optimal camera matrix</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_cameraMatrix = initCameraMatrix2D(Size,objectPoints,imagePoints,ImageSize_width,ImageSize_height,aspectRatio);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Size :</term>
+      <listitem><para> Number of vectors of calibration points and its projections</para></listitem></varlistentry>
+   <varlistentry><term>ObjectPoints :</term>
+      <listitem><para> This is a vector of vector of calibration points</para></listitem></varlistentry>
+   <varlistentry><term>ImagePoints :</term>
+      <listitem><para> This is a vector of vector of projections of calibration points</para></listitem></varlistentry>
+   <varlistentry><term>ImageSize_width :</term>
+      <listitem><para> Specifies the width of image in pixels</para></listitem></varlistentry>
+   <varlistentry><term>ImageSize_height :</term>
+      <listitem><para> Specifies the height of image in pixels</para></listitem></varlistentry>
+   <varlistentry><term>AspectRatio :</term>
+      <listitem><para> If it is zero or negtive, the focal lengths in x an y direction are estimated indepen-dently. Else it is fx=(fy*AspectRatio)</para></listitem></varlistentry>
+   <varlistentry><term>new_cameraMatrix :</term>
+      <listitem><para> Optimal camera matrix(output)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function takes as input the calibration points and their projections and returns a camera matrix.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = [144.00 1011.0;
+237.0 801.0;
+242.0 583.0;
+271.0 421.0];
+imagePoints = list(a)
+b = [18.0 18.0 0;
+25.0 110.0 0;
+26.0 226.0 0;
+29.0 327.0 0];
+objectPoints = list(b)
+new_cameraMatrix = initCameraMatrix2D(1,objectPoints,imagePoints,1280,1024,0);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

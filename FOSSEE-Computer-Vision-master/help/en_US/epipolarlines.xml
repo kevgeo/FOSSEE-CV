@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from epipolarlines.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="epipolarlines" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>epipolarlines</refname>
+    <refpurpose>Draws epipolar lines coressponding to the two images</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out1 out2] = epipolarlines(I1,I2)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>I1 :</term>
+      <listitem><para> First input image</para></listitem></varlistentry>
+   <varlistentry><term>I2 :</term>
+      <listitem><para> Second input image</para></listitem></varlistentry>
+   <varlistentry><term>out1 :</term>
+      <listitem><para> Epipolar lines in first image</para></listitem></varlistentry>
+   <varlistentry><term>out2 :</term>
+      <listitem><para> Epipolar lines in second image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function takes in two images and outputs two images displaying the epipolar lines in each one.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+I1 = imread("left.jpg");
+I2 = imread("right.jpg");
+[I3 I4] = epipolarlines(I1,I2);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

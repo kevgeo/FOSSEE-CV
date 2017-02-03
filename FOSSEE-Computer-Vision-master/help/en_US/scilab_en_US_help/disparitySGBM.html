@@ -1,0 +1,131 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>disparitySGBM</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="decomposeProjectionMatrix.html">&lt;&lt; decomposeProjectionMatrix</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="drawChessboardCorners.html">drawChessboardCorners &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; disparitySGBM</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">disparitySGBM</h1>
+    <p class="refpurpose">Computes disparity map using the semi-global block matching algorithm</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">disparitymat</span><span class="default"> = </span><span class="default">disparity</span><span class="default">(</span><span class="default">I1</span><span class="default">,</span><span class="default">I2</span><span class="default">,</span><span class="default">numofDisparities</span><span class="default">,</span><span class="default">minDisparity</span><span class="default">,</span><span class="default">sadwindowsize</span><span class="default">,</span><span class="default">p1</span><span class="default">,</span><span class="default">p2</span><span class="default">,</span><span class="default">maxDiff</span><span class="default">,</span><span class="default">prefilterCap</span><span class="default">,</span><span class="default">uniquenessratio</span><span class="default">,</span>
+<span class="default">speckleWindowSize</span><span class="default">,</span><span class="default">SpeckleRange</span><span class="default">,</span><span class="default">fullDP</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">I1 :</span>
+      <dd><p class="para">First stereo image</p></dd></dt>
+   <dt><span class="term">I2 :</span>
+      <dd><p class="para">Second stereo image</p></dd></dt>
+   <dt><span class="term">numofDisparities :</span>
+      <dd><p class="para">Maximum disparity minus minimum disparity</p></dd></dt>
+   <dt><span class="term">minDisparity :</span>
+      <dd><p class="para">Minimum possible disparity value</p></dd></dt>
+   <dt><span class="term">sadwindowsize :</span>
+      <dd><p class="para">Matched blocked size</p></dd></dt>
+   <dt><span class="term">p1 :</span>
+      <dd><p class="para">First parameter controlling disparity smoothness</p></dd></dt>
+   <dt><span class="term">p2 :</span>
+      <dd><p class="para">Second parameter controlling disparity smoothness</p></dd></dt>
+   <dt><span class="term">maxDiff :</span>
+      <dd><p class="para">Maximum allowed difference value</p></dd></dt>
+   <dt><span class="term">prefilterCap :</span>
+      <dd><p class="para">Truncation value for the prefiltered image pixels</p></dd></dt>
+   <dt><span class="term">uniquenessratio :</span>
+      <dd><p class="para">Margin in percentage by which the best (minimum) computed cost function value should “win” the second best value to consider the</p></dd></dt>
+   <dt><span class="term">speckleWindowSize :</span>
+      <dd><p class="para">Maximum size of smooth disparity regions to consider their noise speckles and invalidate</p></dd></dt>
+   <dt><span class="term">SpeckleRange :</span>
+      <dd><p class="para">Range of speckle sizes</p></dd></dt>
+   <dt><span class="term">fullDP :</span>
+      <dd><p class="para">Maximum disparity variation within each connected component</p></dd></dt>
+   <dt><span class="term">disparitymat :</span>
+      <dd><p class="para">Disparity map</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function computes disparity map using the semi-global block matching algorithm.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//Reading first stereo image</span>
+<span class="scilabid">I1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">stereo1.png</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Reading second stereo image</span>
+<span class="scilabid">I2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">stereo2.png</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Number of disparities</span>
+<span class="scilabid">numofDisparities</span> <span class="scilaboperator">=</span> <span class="scilabnumber">144</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Minimum of disparity value</span>
+<span class="scilabid">minDisparity</span> <span class="scilaboperator">=</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Matched blocked size</span>
+<span class="scilabid">sadwindowsize</span> <span class="scilaboperator">=</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get first parameter controlling disparity smoothness</span>
+<span class="scilabid">p1</span> <span class="scilaboperator">=</span> <span class="scilabnumber">36</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get second parameter controlling disparity smoothness</span>
+<span class="scilabid">p2</span> <span class="scilaboperator">=</span> <span class="scilabnumber">288</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get maximum allowed difference value</span>
+<span class="scilabid">maxDiff</span> <span class="scilaboperator">=</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get prefilterCap value</span>
+<span class="scilabid">prefilterCap</span> <span class="scilaboperator">=</span> <span class="scilabnumber">10</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get unique ratio value</span>
+<span class="scilabid">uniquenessratio</span> <span class="scilaboperator">=</span> <span class="scilabnumber">10</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get speckle window size value</span>
+<span class="scilabid">speckleWindowSize</span> <span class="scilaboperator">=</span> <span class="scilabnumber">100</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get speckle range value</span>
+<span class="scilabid">SpeckleRange</span> <span class="scilaboperator">=</span> <span class="scilabnumber">32</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Get fullDp value</span>
+<span class="scilabid">fullDP</span> <span class="scilaboperator">=</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">disparitymat</span> <span class="scilaboperator">=</span> <span class="scilabid">disparitySGBM</span><span class="scilabopenclose">(</span><span class="scilabid">I1</span><span class="scilabdefault">,</span><span class="scilabid">I2</span><span class="scilabdefault">,</span><span class="scilabid">numofDisparities</span><span class="scilabdefault">,</span><span class="scilabid">minDisparity</span><span class="scilabdefault">,</span><span class="scilabid">sadwindowsize</span><span class="scilabdefault">,</span><span class="scilabid">p1</span><span class="scilabdefault">,</span><span class="scilabid">p2</span><span class="scilabdefault">,</span><span class="scilabid">maxDiff</span><span class="scilabdefault">,</span><span class="scilabid">prefilterCap</span><span class="scilabdefault">,</span><span class="scilabid">uniquenessratio</span><span class="scilabdefault">,</span>
+<span class="scilabid">speckleWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">SpeckleRange</span><span class="scilabdefault">,</span><span class="scilabid">fullDP</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="decomposeProjectionMatrix.html">&lt;&lt; decomposeProjectionMatrix</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="drawChessboardCorners.html">drawChessboardCorners &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

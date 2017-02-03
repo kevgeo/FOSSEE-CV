@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from RQDecomp3x3.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="RQDecomp3x3" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>RQDecomp3x3</refname>
+    <refpurpose>Computes RQ decomposition of 3x3 matrices</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [triMatrix orthoMatrix RotMatrixX RotMatrixY RotMatrixZ ] = RQDecomp3x3(matrix);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>matrix :</term>
+      <listitem><para> 3x3 input matrix</para></listitem></varlistentry>
+   <varlistentry><term>triMatrix :</term>
+      <listitem><para> 3x3 Triangular matrix</para></listitem></varlistentry>
+   <varlistentry><term>orthoMatrix :</term>
+      <listitem><para> 3x3 Orthogonal matrix</para></listitem></varlistentry>
+   <varlistentry><term>RotMatrixX :</term>
+      <listitem><para> 3x3 rotation matrix around x-axis</para></listitem></varlistentry>
+   <varlistentry><term>RotMatrixY :</term>
+      <listitem><para> 3x3 rotation matrix around y-axis</para></listitem></varlistentry>
+   <varlistentry><term>RotMatrixZ :</term>
+      <listitem><para> 3x3 rotation matrix around z-axis</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function does RQ decomposition of 3x3 matrix and outputs traingular matrix,orthogonal matrix and three rotation matrices
+along x,y and z coordinates.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+matrix = [ 3 21 5;
+3 5 6;
+12 4 5];
+[triMatrix orthoMatrix RotMatrixX RotMatrixY RotMatrixZ ] = RQDecomp3x3(matrix);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from projectPoints.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="projectPoints" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>projectPoints</refname>
+    <refpurpose>Takes in 3D points and outputs the corresponding 2D points in image plane.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   projPts = projectPoints(obpts,rvec,tvec, camera, dist, aspectRatio);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>obpts :</term>
+      <listitem><para> array of object points</para></listitem></varlistentry>
+   <varlistentry><term>rvec :</term>
+      <listitem><para> rotation vector</para></listitem></varlistentry>
+   <varlistentry><term>tvec :</term>
+      <listitem><para> translation vector</para></listitem></varlistentry>
+   <varlistentry><term>camera :</term>
+      <listitem><para> input matrix</para></listitem></varlistentry>
+   <varlistentry><term>dist :</term>
+      <listitem><para> vector of distortion coefficients</para></listitem></varlistentry>
+   <varlistentry><term>aspectRatio :</term>
+      <listitem><para> fixed aspect ratio parameter</para></listitem></varlistentry>
+   <varlistentry><term>projPts :</term>
+      <listitem><para> Array of image points</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function returns array of image points(2D).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+obpts = [ .5 .5 -.5;
+.5 .5 .5;
+-.5 .5 .5;
+-.5 .5 -.5;
+.5 -.5 -.5;
+-.5 -.5 -.5;
+-.5 -.5 .5];
+impts = [282 274;
+397 227;
+577 271;
+462 318;
+270 479;
+450 523;
+566 475];
+camera = [ 1 0 0;
+0 1 0;
+0 0 1]
+dist = [0
+0
+0
+0];
+iterations = 5;
+reprojectionError = 2;
+minInliersCount = 3;
+[rvec tvec] = solvePnPRansac(obpts,impts,camera,dist,1,"CV_ITERATIVE",iterations,reprojectionError,minInliersCount);
+projPts = projectPoints(obpts,rvec,tvec, camera, dist, 2);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

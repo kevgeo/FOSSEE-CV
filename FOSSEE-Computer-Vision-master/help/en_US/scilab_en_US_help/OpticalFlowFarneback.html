@@ -1,0 +1,96 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>OpticalFlowFarneback</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="KalmanFilter.html">&lt;&lt; KalmanFilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="RQDecomp3x3.html">RQDecomp3x3 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; OpticalFlowFarneback</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">OpticalFlowFarneback</h1>
+    <p class="refpurpose">Estimates optical flow using Farneback method and videoplays the motion.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">opticalFlowFarneback</span><span class="default">(</span>&#0034;<span class="default">FileName</span>&#0034;<span class="default">,</span><span class="default">file_path</span><span class="default">);</span>
+<span class="default">opticalFlowFarneback</span><span class="default">(</span>&#0034;<span class="default">FileName</span>&#0034;<span class="default">,</span><span class="default">file_path</span><span class="default">,</span>&#0034;<span class="default">NumPyramidLevels</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">PyramidScale</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">NumIteration</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>
+&#0034;<span class="default">NeighborhoodSize</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">FilterSize</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">PolySigma</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">string FileName :</span>
+      <dd><p class="para">Path of video file</p></dd></dt>
+   <dt><span class="term">double NumPyramidLevels :</span>
+      <dd><p class="para">Specifies the number of pyramid levels.</p></dd></dt>
+   <dt><span class="term">double PyramidScale :</span>
+      <dd><p class="para">Specifies the image scale.</p></dd></dt>
+   <dt><span class="term">double NumIteration :</span>
+      <dd><p class="para">Specifies the number of iterations per pyramid level.</p></dd></dt>
+   <dt><span class="term">double NeighborhoodSize :</span>
+      <dd><p class="para">Specifies the size of neighborhood in pixels.</p></dd></dt>
+   <dt><span class="term">double FilterSize :</span>
+      <dd><p class="para">Specifies the size of filter in pixels.</p></dd></dt>
+   <dt><span class="term">double PolySigma :</span>
+      <dd><p class="para">Specifies standard deviation Gaussian value.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">A video is played and the optical flow calculated by the Farneback method is denoted by the green
+dots that turn into lines when a moving object is detected.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//Estimating optical flow of moving pedestrians</span>
+<span class="scilabid">opticalFlowFarneback</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">FileName</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">ped.avi</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Estimating optical flow of juggling balls</span>
+<span class="scilabid">opticalFlowFarneback</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">FileName</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">juggling2.mp4</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">Poly_Sigma</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">1.2</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">FilterSize</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">6</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">NeighborhoodSize</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabdefault">,</span>
+<span class="scilabstring">&#0034;</span><span class="scilabstring">NumIteration</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">PyramidScale</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0.5</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="KalmanFilter.html">&lt;&lt; KalmanFilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="RQDecomp3x3.html">RQDecomp3x3 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

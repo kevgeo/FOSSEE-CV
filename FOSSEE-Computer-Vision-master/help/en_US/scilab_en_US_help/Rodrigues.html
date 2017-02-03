@@ -1,0 +1,87 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Rodrigues</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="RQDecomp3x3.html">&lt;&lt; RQDecomp3x3</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="calibrateCamera.html">calibrateCamera &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; Rodrigues</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">Rodrigues</h1>
+    <p class="refpurpose">Converts a rotation vector to rotation matrix or vice-versa</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">rotation</span> <span class="default">jacobian</span><span class="default">]  =  </span><span class="functionid">Rodrigues</span><span class="default">(</span><span class="default">rot</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">rot :</span>
+      <dd><p class="para">Rotation matrix or vector</p></dd></dt>
+   <dt><span class="term">rotation :</span>
+      <dd><p class="para">Output rotation matrix</p></dd></dt>
+   <dt><span class="term">jacobian :</span>
+      <dd><p class="para">Matrix of partial derivatives</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function converts a rotation vector to rotation matrix or matrix to vector and also returns an optional output which contains matrix of
+partial derivatives of first output with respect to input.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//Vector values</span>
+<span class="scilabid">rotvec</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">12</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">7</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//Converting </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">rotvec</span><span class="scilabcomment">&#0034;</span><span class="scilabcomment"> vector to a rotation matrix</span>
+<span class="scilabopenclose">[</span><span class="scilabid">rotmatrix</span> <span class="scilabid">jacobian2</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">Rodrigues</span><span class="scilabopenclose">(</span><span class="scilabid">rotvec</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="RQDecomp3x3.html">&lt;&lt; RQDecomp3x3</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="calibrateCamera.html">calibrateCamera &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

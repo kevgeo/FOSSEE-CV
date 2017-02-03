@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from solvePNnP.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="solvePNnP" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>solvePNnP</refname>
+    <refpurpose>Computes pose of object from 2D and 3D points</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [rvec tvec] = solvePnP(objectPoints,imagePoints,cameraMatrix,distortionCoeffs,useExtrinsicGuess,flags);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>MatrixOfDouble objectPoints :</term>
+      <listitem><para> array of object points</para></listitem></varlistentry>
+   <varlistentry><term>MatrixOfDouble imagePoints :</term>
+      <listitem><para> array of corresponding image points</para></listitem></varlistentry>
+   <varlistentry><term>MatrixOfDouble cameraMatrix :</term>
+      <listitem><para> input matrix</para></listitem></varlistentry>
+   <varlistentry><term>ScalarDouble useExtrinsicGuess :</term>
+      <listitem><para> If true(1), function provides rotation and translation vector values</para></listitem></varlistentry>
+   <varlistentry><term>MatrixOfString flags :</term>
+      <listitem><para> method for computing PNP. 1)CV_ITERATIVE - based on Levenberg-Marquardt optimization. 2)CV_P3P - based on paper,“Complete Solution Classification for the Perspective-Three-Point Problem”, by X.S. Gao, X.-R. Hou, J. Tang, H.-F. Chang. 3)CV_EPNP - based on paper “EPnP: Efficient Perspective-n-Point Camera Pose Estimation”, by F.Moreno-Noguer, V.Lepetit and P.Fua .</para></listitem></varlistentry>
+   <varlistentry><term>MatrixOfDouble rvec :</term>
+      <listitem><para> Rotation vector</para></listitem></varlistentry>
+   <varlistentry><term>MatrixOfDouble tvec :</term>
+      <listitem><para> Translation vector</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes pose of object from 2D and 3D points.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+obpts = [ .5 .5 -.5;
+.5 .5 .5;
+-.5 .5 .5;
+.5 .5 .5;
+.5 -.5 -.5;
+-.5 -.5 -.5;
+-.5 -.5 .5];
+impts = [282 274;
+397 227;
+577 276;
+462 378;
+270 479;
+450 523;
+566 476];
+camera = [ 1 0 0;
+0 1 0;
+0 0 1];
+dist = [0
+0
+0
+0];
+[rvec tvec] = solvePnP(obpts,impts,camera,dist,1,"CV_ITERATIVE");
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

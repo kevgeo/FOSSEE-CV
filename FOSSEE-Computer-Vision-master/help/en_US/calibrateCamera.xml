@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from calibrateCamera.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="calibrateCamera" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>calibrateCamera</refname>
+    <refpurpose>Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [rvecs tvecs] = calibrateCamera(list_size,obPts,impts,width,height,camera1,dist);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>matrixofdouble obpts :</term>
+      <listitem><para> vector of vector of calibration points</para></listitem></varlistentry>
+   <varlistentry><term>matrixofdouble impts :</term>
+      <listitem><para> vector of vector of projections of calibration points</para></listitem></varlistentry>
+   <varlistentry><term>double width,height :</term>
+      <listitem><para> size of image in pixels</para></listitem></varlistentry>
+   <varlistentry><term>matrixofdouble camera1 :</term>
+      <listitem><para> camera matrix</para></listitem></varlistentry>
+   <varlistentry><term>matrixofdouble dist1 :</term>
+      <listitem><para> vector of distortion coefficients</para></listitem></varlistentry>
+   <varlistentry><term>rvecs :</term>
+      <listitem><para> Output vector of rotation vectors</para></listitem></varlistentry>
+   <varlistentry><term>tvecs :</term>
+      <listitem><para> Output vector of tranlslaton vectors</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+obpts = [ .5 .5 -.5;
+.5 .5 .5;
+-.5 .5 .5;
+-.5 .5 -.5;
+.5 -.5 -.5;
+-.5 -.5 -.5;
+-.5 -.5 .5];
+impts = [282 274;
+397 227;
+577 271;
+462 318;
+270 479;
+450 523;
+566 475];
+camera1 = [1 0 0
+0 1 0
+0 0 1];
+dist = [0
+0
+0
+0];
+obPts = list(obpts);
+imPts = list(impts)
+[rvecs tvecs] = calibrateCamera(1,obPts,impts,1280,1024,camera1,dist);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

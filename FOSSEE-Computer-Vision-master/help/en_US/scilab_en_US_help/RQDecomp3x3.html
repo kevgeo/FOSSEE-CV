@@ -1,0 +1,91 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>RQDecomp3x3</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="OpticalFlowFarneback.html">&lt;&lt; OpticalFlowFarneback</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="Rodrigues.html">Rodrigues &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; RQDecomp3x3</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">RQDecomp3x3</h1>
+    <p class="refpurpose">Computes RQ decomposition of 3x3 matrices</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">triMatrix</span> <span class="default">orthoMatrix</span> <span class="default">RotMatrixX</span> <span class="default">RotMatrixY</span> <span class="default">RotMatrixZ</span><span class="default"> ] = </span><span class="functionid">RQDecomp3x3</span><span class="default">(</span><span class="default">matrix</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">matrix :</span>
+      <dd><p class="para">3x3 input matrix</p></dd></dt>
+   <dt><span class="term">triMatrix :</span>
+      <dd><p class="para">3x3 Triangular matrix</p></dd></dt>
+   <dt><span class="term">orthoMatrix :</span>
+      <dd><p class="para">3x3 Orthogonal matrix</p></dd></dt>
+   <dt><span class="term">RotMatrixX :</span>
+      <dd><p class="para">3x3 rotation matrix around x-axis</p></dd></dt>
+   <dt><span class="term">RotMatrixY :</span>
+      <dd><p class="para">3x3 rotation matrix around y-axis</p></dd></dt>
+   <dt><span class="term">RotMatrixZ :</span>
+      <dd><p class="para">3x3 rotation matrix around z-axis</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function does RQ decomposition of 3x3 matrix and outputs traingular matrix,orthogonal matrix and three rotation matrices
+along x,y and z coordinates.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://matrix">matrix</a> <span class="scilabstring">=</span> <span class="scilabstring">[</span> <span class="scilabstring">3</span> <span class="scilabstring">21</span> <span class="scilabstring">5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">3</span> <span class="scilabnumber">5</span> <span class="scilabnumber">6</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">12</span> <span class="scilabnumber">4</span> <span class="scilabnumber">5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">triMatrix</span> <span class="scilabid">orthoMatrix</span> <span class="scilabid">RotMatrixX</span> <span class="scilabid">RotMatrixY</span> <span class="scilabid">RotMatrixZ</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">RQDecomp3x3</span><span class="scilabopenclose">(</span><a class="scilabcommand" href="scilab://matrix">matrix</a><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="OpticalFlowFarneback.html">&lt;&lt; OpticalFlowFarneback</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="Rodrigues.html">Rodrigues &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

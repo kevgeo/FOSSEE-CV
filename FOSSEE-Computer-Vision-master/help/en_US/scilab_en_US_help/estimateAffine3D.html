@@ -1,0 +1,100 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>estimateAffine3D</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="epipolarlines.html">&lt;&lt; epipolarlines</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractHOGFeatures.html">extractHOGFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; estimateAffine3D</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">estimateAffine3D</h1>
+    <p class="refpurpose">Computes the affine transformation between two 3D point sets.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">affMat</span> <span class="default">inliers</span><span class="default">] =</span><span class="functionid">estimateAffine3D</span><span class="default">(3</span><span class="default">Dpts_1</span><span class="default">,3</span><span class="default">Dpts_2</span><span class="default">,</span><span class="default">ransacThreshold</span><span class="default">,</span><span class="default">confidence</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">3Dpts_1 :</span>
+      <dd><p class="para">first point set</p></dd></dt>
+   <dt><span class="term">3Dpts_2 :</span>
+      <dd><p class="para">second point set</p></dd></dt>
+   <dt><span class="term">ransacThreshold :</span>
+      <dd><p class="para">maximum reprojection error</p></dd></dt>
+   <dt><span class="term">confidence :</span>
+      <dd><p class="para">confidence value for estimated transformation</p></dd></dt>
+   <dt><span class="term">affMat :</span>
+      <dd><p class="para">Affine transformation matrix</p></dd></dt>
+   <dt><span class="term">inliers :</span>
+      <dd><p class="para">Inlier points</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The fucnction takes as input two 3D points sets and computes the affine transformation matrix &#0034;affMat&#0034;
+and the inlier points are stored in vector &#0034;inliers&#0034;.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">first</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">3</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">4</span> <span class="scilabnumber">3</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">2</span> <span class="scilabnumber">2</span> <span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">7</span> <span class="scilabnumber">1</span> <span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">8</span> <span class="scilabnumber">0</span> <span class="scilabnumber">2</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">second</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">3</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">4</span> <span class="scilabnumber">3</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">2</span> <span class="scilabnumber">2</span> <span class="scilabnumber">4</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">7</span> <span class="scilabnumber">1</span> <span class="scilabnumber">4</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">8</span> <span class="scilabnumber">0</span> <span class="scilabnumber">4</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">affMat</span> <span class="scilabid">inliers</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span><span class="scilabid">estimateAffine3D</span><span class="scilabopenclose">(</span><span class="scilabid">first</span><span class="scilabdefault">,</span><span class="scilabid">second</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">0.99</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="epipolarlines.html">&lt;&lt; epipolarlines</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractHOGFeatures.html">extractHOGFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

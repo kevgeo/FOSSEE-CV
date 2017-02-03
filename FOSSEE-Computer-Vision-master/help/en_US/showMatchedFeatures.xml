@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from showMatchedFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="showMatchedFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>showMatchedFeatures</refname>
+    <refpurpose>Displays the matched features between two images</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outImage = showMatchedFeatures(Image1,Image2);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image1 :</term>
+      <listitem><para> First image file path</para></listitem></varlistentry>
+   <varlistentry><term>Image2 :</term>
+      <listitem><para> Second image file path</para></listitem></varlistentry>
+   <varlistentry><term>outImage :</term>
+      <listitem><para> Output image displaying the matched features</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function takes as input two images and returns an image displaying the matched features by drawing lines from one matched feature to the other.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Reading first image
+I1 = imread("left.jpg");
+//Reading second image
+I2 = imread("right.jpg");
+//Executing function
+outImg = showMatchedFeatures(I1,I2);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from findCirclesGrid.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="findCirclesGrid" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>findCirclesGrid</refname>
+    <refpurpose>Finds centers in the grid of circles</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [centers blob ]= findCirclesGrid(Image,circ_row,circ_cols,flag);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image :</term>
+      <listitem><para> Path of image file</para></listitem></varlistentry>
+   <varlistentry><term>double circ_row,circ_cols :</term>
+      <listitem><para> Number of circles per row and column</para></listitem></varlistentry>
+   <varlistentry><term>string flags :</term>
+      <listitem><para> Different methods to find centers</para></listitem></varlistentry>
+   <varlistentry><term>1.CALIB_CB_SYMMETRIC_GRID :</term>
+      <listitem><para> uses symmetric pattern of circles</para></listitem></varlistentry>
+   <varlistentry><term>centers :</term>
+      <listitem><para> array of detected corners</para></listitem></varlistentry>
+   <varlistentry><term>blob :</term>
+      <listitem><para> feature detector that find blobs</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function finds centers in the grid of circles
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inImage = imread("chessboard3.png");
+[centers blob ]= findCirclesGrid(inImage,7,7,"CALIB CB SYMMETRIC GRID");
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from OpticalFlowFarneback.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="OpticalFlowFarneback" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>OpticalFlowFarneback</refname>
+    <refpurpose>Estimates optical flow using Farneback method and videoplays the motion.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   opticalFlowFarneback("FileName",file_path);
+   opticalFlowFarneback("FileName",file_path,"NumPyramidLevels",value,"PyramidScale",value,"NumIteration",value,
+   "NeighborhoodSize",value,"FilterSize",value,"PolySigma",value);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>string FileName :</term>
+      <listitem><para> Path of video file</para></listitem></varlistentry>
+   <varlistentry><term>double NumPyramidLevels :</term>
+      <listitem><para> Specifies the number of pyramid levels.</para></listitem></varlistentry>
+   <varlistentry><term>double PyramidScale :</term>
+      <listitem><para> Specifies the image scale.</para></listitem></varlistentry>
+   <varlistentry><term>double NumIteration :</term>
+      <listitem><para> Specifies the number of iterations per pyramid level.</para></listitem></varlistentry>
+   <varlistentry><term>double NeighborhoodSize :</term>
+      <listitem><para> Specifies the size of neighborhood in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>double FilterSize :</term>
+      <listitem><para> Specifies the size of filter in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>double PolySigma :</term>
+      <listitem><para> Specifies standard deviation Gaussian value.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+A video is played and the optical flow calculated by the Farneback method is denoted by the green
+dots that turn into lines when a moving object is detected.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Estimating optical flow of moving pedestrians
+opticalFlowFarneback("FileName","ped.avi");
+//Estimating optical flow of juggling balls
+opticalFlowFarneback("FileName","juggling2.mp4","Poly_Sigma",1.2,"FilterSize",6,"NeighborhoodSize",5,
+"NumIteration",3,"PyramidScale",0.5);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

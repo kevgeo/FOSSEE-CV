@@ -1,0 +1,110 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>solvePNnP</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="showMatchedFeatures.html">&lt;&lt; showMatchedFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="solvePnPRansac.html">solvePnPRansac &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; solvePNnP</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">solvePNnP</h1>
+    <p class="refpurpose">Computes pose of object from 2D and 3D points</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">rvec</span> <span class="default">tvec</span><span class="default">] = </span><span class="default">solvePnP</span><span class="default">(</span><span class="default">objectPoints</span><span class="default">,</span><span class="default">imagePoints</span><span class="default">,</span><span class="default">cameraMatrix</span><span class="default">,</span><span class="default">distortionCoeffs</span><span class="default">,</span><span class="default">useExtrinsicGuess</span><span class="default">,</span><span class="default">flags</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">MatrixOfDouble objectPoints :</span>
+      <dd><p class="para">array of object points</p></dd></dt>
+   <dt><span class="term">MatrixOfDouble imagePoints :</span>
+      <dd><p class="para">array of corresponding image points</p></dd></dt>
+   <dt><span class="term">MatrixOfDouble cameraMatrix :</span>
+      <dd><p class="para">input matrix</p></dd></dt>
+   <dt><span class="term">ScalarDouble useExtrinsicGuess :</span>
+      <dd><p class="para">If true(1), function provides rotation and translation vector values</p></dd></dt>
+   <dt><span class="term">MatrixOfString flags :</span>
+      <dd><p class="para">method for computing PNP. 1)CV_ITERATIVE - based on Levenberg-Marquardt optimization. 2)CV_P3P - based on paper,“Complete Solution Classification for the Perspective-Three-Point Problem”, by X.S. Gao, X.-R. Hou, J. Tang, H.-F. Chang. 3)CV_EPNP - based on paper “EPnP: Efficient Perspective-n-Point Camera Pose Estimation”, by F.Moreno-Noguer, V.Lepetit and P.Fua .</p></dd></dt>
+   <dt><span class="term">MatrixOfDouble rvec :</span>
+      <dd><p class="para">Rotation vector</p></dd></dt>
+   <dt><span class="term">MatrixOfDouble tvec :</span>
+      <dd><p class="para">Translation vector</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function computes pose of object from 2D and 3D points.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">obpts</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span><span class="scilabdefault">;</span>
+<span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilaboperator">-</span><span class="scilabnumber">.5</span> <span class="scilabnumber">.5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">impts</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">282</span> <span class="scilabnumber">274</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">397</span> <span class="scilabnumber">227</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">577</span> <span class="scilabnumber">276</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">462</span> <span class="scilabnumber">378</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">270</span> <span class="scilabnumber">479</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">450</span> <span class="scilabnumber">523</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">566</span> <span class="scilabnumber">476</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">camera</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span>
+<span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">dist</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span>
+<span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">rvec</span> <span class="scilabid">tvec</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">solvePnP</span><span class="scilabopenclose">(</span><span class="scilabid">obpts</span><span class="scilabdefault">,</span><span class="scilabid">impts</span><span class="scilabdefault">,</span><span class="scilabid">camera</span><span class="scilabdefault">,</span><span class="scilabid">dist</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">CV_ITERATIVE</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="showMatchedFeatures.html">&lt;&lt; showMatchedFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="solvePnPRansac.html">solvePnPRansac &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

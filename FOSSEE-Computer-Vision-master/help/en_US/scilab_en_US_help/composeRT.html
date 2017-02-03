@@ -1,0 +1,103 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>composeRT</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="calibrationMatrixValues.html">&lt;&lt; calibrationMatrixValues</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convertPointsFromHomogenous.html">convertPointsFromHomogenous &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; composeRT</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">composeRT</h1>
+    <p class="refpurpose">Combines two rotation and shift(translation) transformations</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">RotVec3</span> <span class="default">TransVec3</span><span class="default">] = </span><span class="functionid">composeRT</span><span class="default">(</span><span class="default">RotVec1</span><span class="default">,</span><span class="default">TransVec1</span><span class="default">,</span><span class="default">RotVec2</span><span class="default">,</span><span class="default">TransVec2</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">RotVec1 :</span>
+      <dd><p class="para">first rotation vector</p></dd></dt>
+   <dt><span class="term">TransVec1:</span>
+      <dd><p class="para">first translation vector</p></dd></dt>
+   <dt><span class="term">RotVec2 :</span>
+      <dd><p class="para">second rotation vector</p></dd></dt>
+   <dt><span class="term">TransVec2 :</span>
+      <dd><p class="para">second translation vector</p></dd></dt>
+   <dt><span class="term">RotVec3 :</span>
+      <dd><p class="para">rotation vector output</p></dd></dt>
+   <dt><span class="term">TransVec3 :</span>
+      <dd><p class="para">translation vector output</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function combines two rotation and translation vectors to give a new rotation and translation vector as output.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">First</span> <span class="scilabid">Rotation</span> <span class="scilabid">Vector</span>
+<span class="scilabid">RotVec1</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">2.3</span>
+<span class="scilabnumber">4.5</span>
+<span class="scilabnumber">7.8</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">First</span> <span class="scilabid">Traslation</span> <span class="scilabid">Vector</span>
+<span class="scilabid">TransVec1</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">4</span>
+<span class="scilabnumber">2</span>
+<span class="scilabnumber">3</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">Second</span> <span class="scilabid">Rotation</span> <span class="scilabid">vector</span>
+<span class="scilabid">RotVec2</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">2.1</span>
+<span class="scilabnumber">4</span>
+<span class="scilabnumber">5</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">Second</span> <span class="scilabid">translation</span> <span class="scilabid">vector</span>
+<span class="scilabid">TransVec2</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">2</span>
+<span class="scilabnumber">3</span>
+<span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">RotVec3</span> <span class="scilabid">TransVec3</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">composeRT</span><span class="scilabopenclose">(</span><span class="scilabid">RotVec1</span><span class="scilabdefault">,</span><span class="scilabid">TransVec1</span><span class="scilabdefault">,</span><span class="scilabid">RotVec2</span><span class="scilabdefault">,</span><span class="scilabid">TransVec2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="calibrationMatrixValues.html">&lt;&lt; calibrationMatrixValues</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convertPointsFromHomogenous.html">convertPointsFromHomogenous &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

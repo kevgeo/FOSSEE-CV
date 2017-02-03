@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from estimateAffine3D.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="estimateAffine3D" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>estimateAffine3D</refname>
+    <refpurpose>Computes the affine transformation between two 3D point sets.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [affMat inliers] =estimateAffine3D(3Dpts_1,3Dpts_2,ransacThreshold,confidence);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>3Dpts_1 :</term>
+      <listitem><para> first point set</para></listitem></varlistentry>
+   <varlistentry><term>3Dpts_2 :</term>
+      <listitem><para> second point set</para></listitem></varlistentry>
+   <varlistentry><term>ransacThreshold :</term>
+      <listitem><para> maximum reprojection error</para></listitem></varlistentry>
+   <varlistentry><term>confidence :</term>
+      <listitem><para> confidence value for estimated transformation</para></listitem></varlistentry>
+   <varlistentry><term>affMat :</term>
+      <listitem><para> Affine transformation matrix</para></listitem></varlistentry>
+   <varlistentry><term>inliers :</term>
+      <listitem><para> Inlier points</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The fucnction takes as input two 3D points sets and computes the affine transformation matrix "affMat"
+and the inlier points are stored in vector "inliers".
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+first = [ 0 0 1;
+0 3 1;
+4 3 1;
+2 2 2;
+7 1 2;
+8 0 2];
+second = [ 0 0 3;
+0 3 3;
+4 3 3;
+2 2 4;
+7 1 4;
+8 0 4];
+[affMat inliers] =estimateAffine3D(first,second,3,0.99);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

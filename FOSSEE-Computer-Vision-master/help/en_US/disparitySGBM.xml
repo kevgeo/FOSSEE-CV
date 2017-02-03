@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from disparitySGBM.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="disparitySGBM" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>disparitySGBM</refname>
+    <refpurpose>Computes disparity map using the semi-global block matching algorithm</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   disparitymat = disparity(I1,I2,numofDisparities,minDisparity,sadwindowsize,p1,p2,maxDiff,prefilterCap,uniquenessratio,
+   speckleWindowSize,SpeckleRange,fullDP);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>I1 :</term>
+      <listitem><para> First stereo image</para></listitem></varlistentry>
+   <varlistentry><term>I2 :</term>
+      <listitem><para> Second stereo image</para></listitem></varlistentry>
+   <varlistentry><term>numofDisparities :</term>
+      <listitem><para> Maximum disparity minus minimum disparity</para></listitem></varlistentry>
+   <varlistentry><term>minDisparity :</term>
+      <listitem><para> Minimum possible disparity value</para></listitem></varlistentry>
+   <varlistentry><term>sadwindowsize :</term>
+      <listitem><para>  Matched blocked size</para></listitem></varlistentry>
+   <varlistentry><term>p1 :</term>
+      <listitem><para> First parameter controlling disparity smoothness</para></listitem></varlistentry>
+   <varlistentry><term>p2 :</term>
+      <listitem><para> Second parameter controlling disparity smoothness</para></listitem></varlistentry>
+   <varlistentry><term>maxDiff :</term>
+      <listitem><para> Maximum allowed difference value</para></listitem></varlistentry>
+   <varlistentry><term>prefilterCap :</term>
+      <listitem><para> Truncation value for the prefiltered image pixels</para></listitem></varlistentry>
+   <varlistentry><term>uniquenessratio :</term>
+      <listitem><para> Margin in percentage by which the best (minimum) computed cost function value should “win” the second best value to consider the</para></listitem></varlistentry>
+   <varlistentry><term>speckleWindowSize :</term>
+      <listitem><para> Maximum size of smooth disparity regions to consider their noise speckles and invalidate</para></listitem></varlistentry>
+   <varlistentry><term>SpeckleRange :</term>
+      <listitem><para> Range of speckle sizes</para></listitem></varlistentry>
+   <varlistentry><term>fullDP :</term>
+      <listitem><para> Maximum disparity variation within each connected component</para></listitem></varlistentry>
+   <varlistentry><term>disparitymat :</term>
+      <listitem><para> Disparity map</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes disparity map using the semi-global block matching algorithm.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Reading first stereo image
+I1 = imread("stereo1.png");
+//Reading second stereo image
+I2 = imread("stereo2.png");
+//Number of disparities
+numofDisparities = 144;
+//Minimum of disparity value
+minDisparity = 0;
+//Matched blocked size
+sadwindowsize = 3;
+//Get first parameter controlling disparity smoothness
+p1 = 36;
+//Get second parameter controlling disparity smoothness
+p2 = 288;
+//Get maximum allowed difference value
+maxDiff = 1;
+//Get prefilterCap value
+prefilterCap = 10;
+//Get unique ratio value
+uniquenessratio = 10;
+//Get speckle window size value
+speckleWindowSize = 100;
+//Get speckle range value
+SpeckleRange = 32;
+//Get fullDp value
+fullDP = 1;
+disparitymat = disparitySGBM(I1,I2,numofDisparities,minDisparity,sadwindowsize,p1,p2,maxDiff,prefilterCap,uniquenessratio,
+speckleWindowSize,SpeckleRange,fullDP);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

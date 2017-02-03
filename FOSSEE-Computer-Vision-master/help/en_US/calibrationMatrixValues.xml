@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from calibrationMatrixValues.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="calibrationMatrixValues" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>calibrationMatrixValues</refname>
+    <refpurpose>Calculates useful camera properties from the camera matrix</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [fovx fovy focal ppoint aspectRatio ] = calibrationMatrixValues(cameraMatrix,width,height,apertureWidth,apertureHeight);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>matrixofdouble cameraMatrix :</term>
+      <listitem><para> Input camera matrix</para></listitem></varlistentry>
+   <varlistentry><term>double width :</term>
+      <listitem><para> width of image</para></listitem></varlistentry>
+   <varlistentry><term>double height :</term>
+      <listitem><para> height of image</para></listitem></varlistentry>
+   <varlistentry><term>double apertureWidth :</term>
+      <listitem><para> width of sensor</para></listitem></varlistentry>
+   <varlistentry><term>double apertureHeight :</term>
+      <listitem><para> height of sensor</para></listitem></varlistentry>
+   <varlistentry><term>fovx :</term>
+      <listitem><para> field of view along horizontal sensor axis</para></listitem></varlistentry>
+   <varlistentry><term>fovy :</term>
+      <listitem><para> field of view along vertical sensor axis</para></listitem></varlistentry>
+   <varlistentry><term>focal :</term>
+      <listitem><para> focal length of lens(mm)</para></listitem></varlistentry>
+   <varlistentry><term>ppoint :</term>
+      <listitem><para> principal point in pixels</para></listitem></varlistentry>
+   <varlistentry><term>aspectRatio :</term>
+      <listitem><para> It is ratio of focal length(pixels) in vertical direction to focal length in horizontal direction.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes useful camera properties from the camera matrix such as focal length,aspect ratio and field of view.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+camera = [2 33 12
+3 5 6
+1 56 7];
+width = 100;
+height = 200;
+apertureWidth = 1;
+apertureHeight = 1;
+[fovx fovy focal ppoint apectRatio ] = calibrationMatrixValues(camera,width,height,apertureWidth,apertureHeight);
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

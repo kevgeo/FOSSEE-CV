@@ -1,0 +1,91 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>convolver</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="convertPointsToHomogeneous.html">&lt;&lt; convertPointsToHomogeneous</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="decomposeProjectionMatrix.html">decomposeProjectionMatrix &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a> &gt; convolver</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">convolver</h1>
+    <p class="refpurpose">Perform convolution on image with kernel</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">outputImg</span><span class="default"> = </span><span class="functionid">convolver</span><span class="default">(</span><span class="default">Image</span><span class="default">,</span>&#0034;<span class="default">size</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">values</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">,</span>&#0034;<span class="default">scalar</span>&#0034;<span class="default">,</span><span class="default">value</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">Image :</span>
+      <dd><p class="para">Input image matrix</p></dd></dt>
+   <dt><span class="term">int size :</span>
+      <dd><p class="para">This is basically the dimension of the kernel. Since only square matrix kernel is supported, size is either column or row size of kernel.</p></dd></dt>
+   <dt><span class="term">array(float) values :</span>
+      <dd><p class="para">Kernel or filter</p></dd></dt>
+   <dt><span class="term">int scalar :</span>
+      <dd><p class="para">The value which is multiplied to the whole kernel</p></dd></dt>
+   <dt><span class="term">outputImg :</span>
+      <dd><p class="para">Convoluted image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function computes convolution on an image with a kernel and outputs a new image.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">Reading</span> <span class="scilabid">image</span>
+<span class="scilabid">I1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//This kernel will give same image with no change</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//convolution on image is done with this kernel</span>
+<span class="scilabid">outImg</span> <span class="scilaboperator">=</span> <span class="scilabid">convolver</span><span class="scilabopenclose">(</span><span class="scilabid">I1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">size</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">values</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">scalar</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//-</span><span class="scilabcomment">&#0062;</span><span class="scilabcomment"> Returns an image</span>
+
+<span class="scilabid">Author</span>
+<span class="scilabid">Kevin</span> <span class="scilabid">George</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="convertPointsToHomogeneous.html">&lt;&lt; convertPointsToHomogeneous</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_1dc9596c61a304fd3d0f9927d7e728f8.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="decomposeProjectionMatrix.html">decomposeProjectionMatrix &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from KalmanFilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="KalmanFilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>KalmanFilter</refname>
+    <refpurpose>Object Tracking using Kalman Filter</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   KalmanFilter("FileName",value,"dynamParams",value,"measureParams",value,"controlParams",value,
+   "type",value,"colour",value,"drawpath",value,"delay",value);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>int dynamparams :</term>
+      <listitem><para> This specifies the state dimensionality.</para></listitem></varlistentry>
+   <varlistentry><term>int measureparams :</term>
+      <listitem><para> This specifies the measurement dimensionality</para></listitem></varlistentry>
+   <varlistentry><term>int controlparams :</term>
+      <listitem><para> This specifies the control vector values</para></listitem></varlistentry>
+   <varlistentry><term>int type :</term>
+      <listitem><para> This specifies the datatype of frames in the video</para></listitem></varlistentry>
+   <varlistentry><term>string colour :</term>
+      <listitem><para> This specifies the colour of the object to be tracked</para></listitem></varlistentry>
+   <varlistentry><term>bool drawpath :</term>
+      <listitem><para> This specifies whether you want the path of the moving object to be drawn</para></listitem></varlistentry>
+   <varlistentry><term>bool delay :</term>
+      <listitem><para> This specifies whether video playback show be slower or not.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function tracks the object using Kalman Filter and video-plays the tracking of the object. The red box is the object being
+detected using Kalman Filter method wheras the green box is the same except the method used
+here are basic image processing techniques to detect the object in the video frame.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Performing Object Tracking on green ball
+KalmanFilter("FileName","singleball.avi","colour","green","delay","true","drawpath","true")
+//Performing Object Tracking on red juggling ball
+KalmanFilter("FileName","juggling.mp4","colour","red","drawpath","false");
+
+Author
+Kevin George
+   ]]></programlisting>
+</refsection>
+</refentry>

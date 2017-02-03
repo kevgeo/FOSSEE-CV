@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from isfilterseparable.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="isfilterseparable" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>isfilterseparable</refname>
+    <refpurpose>Checks whether the given filter/kernel is separable or not.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   bool check = isfilterseparable("filter",kernel)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>filter:</term>
+      <listitem><para> filter/kernel values</para></listitem></varlistentry>
+   <varlistentry><term>check :</term>
+      <listitem><para> Boolean variable which tells whether the kernel is separable(1) or not(0).</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function finds the rank of the kernel. If it is 1, then the function returns a boolean value 1 signifying that the filter is separable;
+else it returns boolean value 0 signifying it is not separable.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Sobel filter
+sobel = [-1 0 1; -2 0 2; -1 0 1];
+//Executing function
+isfilterseparable("filter",sobel)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kevin George</member>
+   </simplelist>
+</refsection>
+</refentry>
